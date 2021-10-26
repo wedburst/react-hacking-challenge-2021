@@ -2,8 +2,11 @@ import React from "react";
 import { Header } from "./Header";
 
 import JoseImage from "../assets/img/jose.svg";
+import { useSelector } from "react-redux";
 
 export const WelcomeScreen = () => {
+  const { dataCorreo, dataMontoBase } = useSelector((state) => state.form);
+
   return (
     <div>
       <Header />
@@ -18,7 +21,7 @@ export const WelcomeScreen = () => {
             <p>Cuenta con nosotros para proteger tu vehículo</p>
             <p className="mt-16">
               Enviaremos la confirmación de compra de tu Plan Vehícular Tracking
-              a tu correo: <br /> joel.sanchez@gmail.com
+              a tu correo: <br /> {dataCorreo} con el monto base {dataMontoBase}
             </p>
             <button className="btn btn-rimac">cómo usar mi seguro</button>
           </div>
