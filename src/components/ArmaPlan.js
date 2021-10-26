@@ -9,7 +9,6 @@ import Add from "../assets/img/gl_add.png";
 import Remove from "../assets/img/gl_remove.png";
 
 import CheckMark from "../assets/img/ic_check.svg";
-import { Header } from "./Header";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -69,9 +68,7 @@ export const ArmaPlan = () => {
     if(atropelloToggle === false){
       montoBase -= atroPello;
     }
-
     montoBase += 20;
-
   }
 
 
@@ -143,7 +140,6 @@ export const ArmaPlan = () => {
                 type="number"
                 className="form-control text-center"
                 value={counter}
-                style={{width: '87px'}}
               />
               <button className="btn" onClick={ () => increment(100) }>
                 <img src={Add} alt="add more"/>

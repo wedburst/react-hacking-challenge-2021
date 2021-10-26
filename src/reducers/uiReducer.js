@@ -4,7 +4,7 @@ const initialState = {
   msgError: null,
 };
 
-export const uiReducer = (state = initialState, action) => {
+const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.uisetError:
       return {
@@ -21,3 +21,5 @@ export const uiReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default uiReducer;

@@ -5,7 +5,7 @@ import { store } from "./store/store";
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
+    <Provider store={store}>
       <AppRouter />
     </Provider>
     </div>

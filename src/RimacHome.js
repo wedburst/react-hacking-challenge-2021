@@ -5,9 +5,15 @@ import { Header } from "./components/Header";
 import { useForm } from "./hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
 import { eventForm, removeError, setError } from "./actions/formulario";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useFetch } from "./hooks/useFetch";
 
 const RimacHome = ({ history }) => {
+
+  const baseURL = "https://jsonplaceholder.typicode.com/users/1";
+
+  // GET DATA FROM API 
+  const { user } = useFetch({ baseURL });
 
   const dispatch = useDispatch();
   const [terminos, setTerminos] = useState(false);
@@ -23,65 +29,56 @@ const RimacHome = ({ history }) => {
     placa: "",
   });
 
-  const { tipo_documento, documento, nombre, correo, celular, placa } =
-    formValues;
+  const { tipo_documento, documento, celular, placa } = formValues;
 
-    const handleForm = (e) => {
-      e.preventDefault();
-  
-      if (isValidation()) {
-        //vamos a validar
-        dispatch(
-          eventForm(tipo_documento, documento, nombre , correo, celular, placa)
-        );
-        console.log(
-          "Datos ",
-          tipo_documento,
-          documento,
-          nombre,
-          correo,
-          celular,
-          placa
-        );
-        console.log("se envio todo chido! 😊");
-        history.push("/armaplan");
-      }
-    };
+  const handleForm = (e) => {
+    e.preventDefault();
 
-    const isValidation = () => {
-      if (tipo_documento.trim().length === 0) {
-        dispatch(setError("El tipo de documento es requerido"));
-        return false;
-      } else if (documento === "" || documento.length < 5) {
-        dispatch(setError("El documento es requerido"));
-        return false;
-      } else if (celular === "" || celular.length < 5) {
-        dispatch(setError("El celular es incorrecto"));
-        return false;
-      } else if (placa === "" || placa.trim().length < 5) {
-        dispatch(setError("La placa es incorrecto"));
-        return false;
-      } else if (terminos === false) {
-        dispatch(
-          setError(
-            "Politica de proteccion de datos y los terminos y condiciones son requeridos"
-          )
-        );
-        return false;
-      }
-  
-      dispatch(removeError());
-      return true;
-    };
+    if (isValidation()) {
+      //vamos a validar
+      dispatch(
+        eventForm(tipo_documento, documento, user.name, user.email, celular, placa)
+      );
+      console.log("Datos ", formValues);
+      console.log("se envio todo chido! 😊");
+      history.push("/armaplan");
+    }
+  };
 
-    const handleTerminos = (event) => {
-      if (event.target.name === "terminoCondiciones") {
-        setTerminos(event.target.checked);
-      }
-    };
-  
+  const isValidation = () => {
+    if (tipo_documento.trim().length === 0) {
+      dispatch(setError("El tipo de documento es requerido"));
+      return false;
+    } else if (documento === "" || documento.length < 5) {
+      dispatch(setError("El documento es requerido"));
+      return false;
+    } else if (celular === "" || celular.length < 5) {
+      dispatch(setError("El celular es incorrecto"));
+      return false;
+    } else if (placa === "" || placa.trim().length < 5) {
+      dispatch(setError("La placa es incorrecto"));
+      return false;
+    } else if (terminos === false) {
+      dispatch(
+        setError(
+          "Politica de proteccion de datos y los terminos y condiciones son requeridos"
+        )
+      );
+      return false;
+    }
+
+    dispatch(removeError());
+    return true;
+  };
+
+  const handleTerminos = (event) => {
+    if (event.target.name === "terminoCondiciones") {
+      setTerminos(event.target.checked);
+    }
+  };
+
   return (
-    <div class="grid-2">
+    <div className="grid-2">
       <div className="image sm-bg-rimac">
         <div className="w-100">
           <img src={Rimac} className="logo-rimac mt-24" alt="rimac" />
@@ -157,22 +154,22 @@ const RimacHome = ({ history }) => {
                 />
               </div>
               <div className="mt-24">
-                <label class="checkbox">
+                <label className="checkbox">
                   <p className="m-0 label-text">
                     Acepto la{" "}
                     <Link to="/"> Política de Protecciòn de Datos Personales</Link> y
                     los <Link to="/"> Términos y Condiciones.</Link>
                   </p>
-                  <input type="checkbox" 
+                  <input type="checkbox"
                     name="terminoCondiciones"
                     checked={terminos}
                     onChange={handleTerminos}
                   />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
               </div>
               <div>
-              {msgError && (
+                {msgError && (
                   <div className="alert alert-danger">{msgError}</div>
                 )}
                 <button type="submit" className="btn btn-rimac">

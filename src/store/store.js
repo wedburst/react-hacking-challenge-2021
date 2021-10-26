@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import montoReducer from "../reducers/montoReducer";
 import rootReducer from "../reducers/rootReducer";
-import { uiReducer } from "../reducers/uiReducer";
+import uiReducer from "../reducers/uiReducer";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -11,6 +12,7 @@ const composeEnhancers =
 const reducers = combineReducers({
   form: rootReducer,
   ui: uiReducer,
+  montoBase: montoReducer,
 });
 
 export const store = createStore(
