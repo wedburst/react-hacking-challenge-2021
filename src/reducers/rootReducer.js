@@ -16,6 +16,9 @@ const notesReducer = (state = {}, action) => {
         dataCorreo: action.payload.correo,
         dataCelular: action.payload.celular,
         dataPlaca: action.payload.placa,
+        dataMarca: action.payload.marca,
+        dataYear: action.payload.year,
+        dataModelo: action.payload.modelo,
       };
     
     default:

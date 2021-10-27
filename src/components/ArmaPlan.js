@@ -24,6 +24,8 @@ import NumThree from "../assets/img/3.png";
 import CircleRemove from "../assets/img/circle_remove.png";
 import CircleAdd from "../assets/img/circle_add.png";
 import { sendMonto } from "../actions/formulario";
+import ProgressBar from 'react-bootstrap/ProgressBar'
+
 export const ArmaPlan = () => {
   const dispatch = useDispatch();
 
@@ -37,7 +39,7 @@ export const ArmaPlan = () => {
     const [atropelloToggle, setAtropelloToggle] = useState(false);
     const toggleAtropelloToggle = () => setAtropelloToggle(!atropelloToggle);
   
-    const { dataNombre, dataPlaca } = useSelector((state) => state.form);
+    const { dataNombre, dataPlaca, dataMarca, dataYear, dataModelo } = useSelector((state) => state.form);
 
 
   const {
@@ -81,7 +83,7 @@ export const ArmaPlan = () => {
     <div>
       <div className="grid-step">
         <div className="bg-lateral">
-          <div>
+          <div className="sm-none">
             <div className="">
               <div className={index === 1 ? "activeSteps" : "step-number"}>
                 <div className="number">1</div>
@@ -96,6 +98,12 @@ export const ArmaPlan = () => {
                 <div className="number">2</div>
                 <p className="ml-16">Arma tu plan</p>
               </div>
+            </div>
+          </div>
+          <div className="sm-block w-75">
+            <div className="d-grid-progress">
+              <p>Paso 2 de 2</p>
+              <ProgressBar now={100} />
             </div>
           </div>
         </div>
@@ -120,7 +128,7 @@ export const ArmaPlan = () => {
           <div className="card__juan">
             <div className="card__text">
               <p>Placa: {dataPlaca}</p>
-              <p>Wolkswagen 2019 Golf</p>
+              <p>{dataMarca} {dataYear} {dataModelo}</p>
             </div>
             <img src={JuanRimac} alt="Juan Rimac" />
           </div>

@@ -27,9 +27,12 @@ const RimacHome = ({ history }) => {
     correo: "joel.sanchez@gmail.com",
     celular: "",
     placa: "",
+    marca: "Toyota",
+    year: "2021",
+    modelo: "Corolla"
   });
 
-  const { tipo_documento, documento, celular, placa } = formValues;
+  const { tipo_documento, documento, celular, placa, marca, year, modelo } = formValues;
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -37,7 +40,7 @@ const RimacHome = ({ history }) => {
     if (isValidation()) {
       //vamos a validar
       dispatch(
-        eventForm(tipo_documento, documento, user.name, user.email, celular, placa)
+        eventForm(tipo_documento, documento, user.name, user.email, celular, placa, marca, year, modelo )
       );
       console.log("Datos ", formValues);
       console.log("se envio todo chido! 😊");
@@ -121,7 +124,7 @@ const RimacHome = ({ history }) => {
                     <option value="">C.E</option>
                   </select>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control bl-0"
                     placeholder="Nro. de doc"
                     name="documento"
@@ -133,7 +136,7 @@ const RimacHome = ({ history }) => {
               </div>
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Celular"
                   name="celular"

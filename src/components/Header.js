@@ -2,11 +2,14 @@ import React from "react";
 import Rimac from "../assets/img/rimac.png";
 import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className="top-bar fixed-top">
-      <img src={Rimac} className="" alt="rimac" />
+      <Link to="/">
+       <img src={Rimac} className="" alt="rimac" />
+      </Link>
       <div className="text-right d-flex align-items-center justify-content-end sm-none">
         <p className="color-gray">¿Tienes alguna duda?</p>
         <p className="dudas__phone">

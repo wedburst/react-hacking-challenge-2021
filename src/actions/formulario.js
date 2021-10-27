@@ -6,7 +6,8 @@ export const eventForm = (
   nombre,
   correo,
   celular,
-  placa
+  placa,
+  marca, year, modelo
 ) => ({
   type: types.eventForm,
   payload: {
@@ -16,6 +17,7 @@ export const eventForm = (
     correo,
     celular,
     placa,
+    marca, year, modelo
   },
 });
 
