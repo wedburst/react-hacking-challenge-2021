@@ -24,7 +24,7 @@ export const WelcomeScreen = () => {
             <p>Cuenta con nosotros para proteger tu vehículo</p>
             <p className="mt-16">
               Enviaremos la confirmación de compra de tu Plan Vehícular Tracking
-              a tu correo: <br /> {dataCorreo} con el monto base {monto}
+              a tu correo: <br /> {dataCorreo} con el monto base $ {monto}
             </p>
             <button className="btn btn-rimac">cómo usar mi seguro</button>
           </div>

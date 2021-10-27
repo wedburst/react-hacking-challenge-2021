@@ -292,29 +292,33 @@ export const ArmaPlan = () => {
       </Accordion>
           {/* Fin */}
         </div>
-        <div className="lateral__plan">
-          <p>Monto</p>
-          <p>{montoBase.toFixed(2)}</p>
-          <p>mensuales</p>
-          <hr />
-          <p className="title_include">El precio incluye:</p>
+        <div className="lateral__plan sm-d-block">
+          <div>
+            <p className="sm-none">Monto</p>
+            <p className="monto-base">$ {montoBase.toFixed(2)}</p>
+            <p>mensuales</p>
+          </div>
+          <hr className="sm-none"/>
+          <p className="title_include sm-none">El precio incluye:</p>
           <div style={{ marginTop: "12px" }}>
-            <div className="d-flex align-items-center">
-              <img src={CheckMark} alt="checkmark" />
-              <div className="margin__left__check">
-                <p>Llanta de respuesto</p>
+            <div className="sm-none">
+              <div className="d-flex align-items-center">
+                <img src={CheckMark} alt="checkmark" />
+                <div className="margin__left__check">
+                  <p>Llanta de respuesto</p>
+                </div>
               </div>
-            </div>
-            <div className="d-flex align-items-center">
-              <img src={CheckMark} alt="checkmark" />
-              <div className="margin__left__check">
-                <p>Analisis de motor</p>
+              <div className="d-flex align-items-center">
+                <img src={CheckMark} alt="checkmark" />
+                <div className="margin__left__check">
+                  <p>Analisis de motor</p>
+                </div>
               </div>
-            </div>
-            <div className="d-flex align-items-center">
-              <img src={CheckMark} alt="checkmark" />
-              <div className="margin__left__check">
-                <p>Aros gratis</p>
+              <div className="d-flex align-items-center">
+                <img src={CheckMark} alt="checkmark" />
+                <div className="margin__left__check">
+                  <p>Aros gratis</p>
+                </div>
               </div>
             </div>
             <div>

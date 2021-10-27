@@ -17,6 +17,12 @@ export const Header = () => {
           <FontAwesomeIcon icon={faPhoneAlt} /> (01) 411 6001
         </p>
       </div>
+      <div className="sm-block">
+        <p className="dudas__phone">
+          <FontAwesomeIcon icon={faPhoneAlt} className="mr-3"/>
+          <span style={{marginLeft: '4px'}}>Llámanos</span>
+        </p>
+      </div>
     </div>
   );
 };
